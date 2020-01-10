@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+            "MyApp\\": "app"
+        }
+    },
+    "require": {
+        "cboden/ratchet": "^0.4",
+        "nategood/httpful": "0.3.0",
+        "tcdent/php-restclient": "^0.1.7"
+    }
+}
