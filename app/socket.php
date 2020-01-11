@@ -221,10 +221,18 @@ class Socket implements MessageComponentInterface {
                     }
                 }
             }
-            $ms1=array('command'=>'Esperar','x'=>$data['x'],'y'=>$data['y'],'resp'=>$datos);
-            $ms2=array('command'=>'Dispare','x'=>$data['x'],'y'=>$data['y'],'resp'=>$datos);
-            $conn->send(json_encode($ms1));
-            $to->send(json_encode($ms2));
+            if($datos!=100){
+                $ms1=array('command'=>'Esperar','x'=>$data['x'],'y'=>$data['y'],'resp'=>$datos);
+                $ms2=array('command'=>'Dispare','x'=>$data['x'],'y'=>$data['y'],'resp'=>$datos);
+                $conn->send(json_encode($ms1));
+                $to->send(json_encode($ms2));
+            }else{
+                $ms1=array('command'=>'Gano','x'=>$data['x'],'y'=>$data['y'],'resp'=>$datos);
+                $ms2=array('command'=>'Perdio','x'=>$data['x'],'y'=>$data['y'],'resp'=>$datos);
+                $conn->send(json_encode($ms1));
+                $to->send(json_encode($ms2));
+                }
+            
         }
     }
  
